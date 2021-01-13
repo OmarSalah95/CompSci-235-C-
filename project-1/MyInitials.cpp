@@ -32,7 +32,7 @@ int main()
             ? cout << topAndBottom + "\n" 
         : i>0 and i<4 
             ? cout << pattern1 + "\n" 
-        :i == 4
+        : i == 4
             ? cout << middle + "\n" 
         : cout << pattern2 + "\n" ;
     }
