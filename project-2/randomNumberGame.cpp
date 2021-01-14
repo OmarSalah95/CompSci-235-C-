@@ -13,6 +13,8 @@ int main()
         tryCount = 0,// Simple counter to count how many guesses the user has made
         hintTrig = 3, // For modularity we will add the hint limit trigger
         guessLim = 10, // Initiate a guess limit as a maximum number of attemtped guesses
+        lowGuessCount = 0, // Initialize low guess counter
+        highGuessCount = 0, // Initialize high guess counter
         userInput; // initiate an empty variable to store the users input
 
     cout << value << endl; // This is mainly for debugging and testing functionality.
@@ -33,35 +35,53 @@ int main()
                 gameActive = 0;
             }
 
-        cout << "You have made " << tryCount << (tryCount ==1 ? " guesse" : " guesses") << endl;
-        cout << "Please enter your best guess:";
+        cout << "You have made " << tryCount << " out of " << guessLim << " guesses." << endl;
+        cout << "\nPlease enter your best guess:";
         cin >> userInput;// The prior line prompts the user for input and this one takes the users input and stores it to the userInput variable
         tryCount++; // Increment the try count to trigger hints (Could also be used to end the game after a set number of tries)
 
         // Quit condition will inform the user that they have quit as well as end the process
         if (userInput == -1) 
         {
-            cout << "You quit.\nThe number was: " << value << "\nGame Over!" << endl;
+            cout << "\nYou quit after " << tryCount << " tries!" 
+                << "\n\nThe number was: " << value 
+                << "\nHigh Guesses: " << highGuessCount 
+                << "\nLow guesses: " << lowGuessCount << "\n\nGame Over!" << endl;
+
             gameActive = 0;
         } 
         // This is in case of the users guess being accurate triggering a win and ending the game
         else if (userInput == value) 
         {
-            cout << "\n\nCongratulations you guessed right!\nGame Over!" << endl;
+            cout << "\n\nCongratulations you guessed right!\n"
+                << "You did it in " << tryCount << " guesses!\n" 
+                << "High Guesses: " << highGuessCount
+                << "\nLow guesses: " << lowGuessCount << "\n\nGame Over!\n" << endl;
+                
             gameActive = 0;
         }
         // This is the case which will most often be triggered in which we simply inform the user that their guess was innacrate before repeating the loop and prompting
         // the user once again for input. 
         else 
         {
-            cout << "Ouch wrong guess, Try again!\n" << endl;
+            cout << "\nOuch wrong guess, Try again!\n" << endl;
+            // Logic to increment either the high or low guess counter dependent on whether or not the guess is high or low, I just dont like how leaving the hint lock in place
+            // forces this need for repetitive logic here
+            userInput < value
+                ? lowGuessCount++ 
+                : highGuessCount++;
             
             // Once the user has made enough guesses it will trigger hints being displayed
             if (tryCount > hintTrig) 
             {
-                userInput < value // If the users input is less than the random value it will display thier guess was low, otherwise it will display that it was too low.
-                    ? cout << "Hint: Your guess was too low!\n" << endl
-                    : cout << "Hint: Your guess was too high!\n" << endl;
+               if  (userInput < value) // If the users input is less than the random value it will display thier guess was low, otherwise it will display that it was too low.
+                    {
+                        cout << "Hint: Your guess was too low!\n" << endl;
+                    } 
+                else
+                    {
+                        cout << "Hint: Your guess was too high!\n" << endl;
+                    } ;
             };
         };
     }
