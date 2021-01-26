@@ -8,7 +8,6 @@
 //  OOOOOO     SSSSSSSS    EEEEEEEE
 
 
-
 #include <iostream>
 #include <string>
 using namespace std;
@@ -23,7 +22,6 @@ int main()
         pattern1 = "O" + string(6,' ') + "O    S" + string(11,' ') + "E    " + string(7,' '),
         middle = "O" + string(6,' ') + "O    " + string(8,'S') + "    " + string(8,'E'),
         pattern2 = "O" + string(6,' ') + "O    " + string(7,' ') + "S    E" + string(7,' ');
-
     // Next we will iterate through a for loop between 0 and 7(giving us our 8x8 grids individual rows), then we can iterate through each of the rows, printing the corresponding
     // pattern of chars from our initials, using our index pointer as a row marker and trigger of our conditionals.
     for(int i=0; i<8; i++)
@@ -36,7 +34,6 @@ int main()
             ? cout << middle + "\n" 
         : cout << pattern2 + "\n" ;
     }
-
     // This is one very repetative method of doing this, it will work if uncommented.
     // cout << string(8,'O') + "    " + string(8,'S') + "    " + string(8,'E') << endl;
     // cout << "O" + string(6,' ') + "O    S" + string(11,' ') + "E    " + string(7,' ') << endl;
@@ -46,7 +43,5 @@ int main()
     // cout << "O" + string(6,' ') + "O    " + string(7,' ') + "S    E" + string(7,' ') << endl;
     // cout << "O" + string(6,' ') + "O    " + string(7,' ') + "S    E" + string(7,' ') << endl;
     // cout << string(8,'O') + "    " + string(8,'S') + "    " + string(8,'E') << endl;
-
     return 0;
-    
 }

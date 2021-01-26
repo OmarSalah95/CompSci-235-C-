@@ -2,8 +2,11 @@
 using namespace std;
 
 int main(){
-  const int LUCKY = 7;
-  cout << LUCKY * 3 << endl;
+  int num = 0;
+  while(num <= 20){
+    num++;
+    cout << num << " ";
+  }
   cin.ignore();
   return 0;
 }
