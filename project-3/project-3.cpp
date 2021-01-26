@@ -50,7 +50,7 @@ void  showMenu (  ) {
     cout << endl << "----------------------------Main Menu----------------------------" << endl;
     cout << endl << "                           Command List      " << endl;
     cout << endl << " Option 1: Will display a help menu with a list of accepted commands" << endl;
-    cout << endl << " Option 2: Forward Command Increments our image carousel forwards" << endl;
+    cout << " Option 2: Forward Command Increments our image carousel forwards" << endl;
     cout << " Option 3: Forward Command Increments our image carousel backwards" << endl;
     cout << " Option 4: Generates and prints our current file name" << endl;
     cout << " Option 5: Generates and prints a random file name between our min\n\tand max values (1-8)" << endl;
@@ -64,7 +64,7 @@ int main () {
         command;
 
     string Filler = "\n\nImage Number is now at: ",
-    newFileFiller = "\n\nGenerated File Name: ";
+        newFileFiller = "\n\nGenerated File Name: ";
 
 
     showMenu();
@@ -78,10 +78,10 @@ int main () {
             showMenu;
             break;
         case 2: 
-            cout << filler << forward(image_number) << endl;
+            cout << Filler << forward(image_number) << endl;
             break;
         case 3:
-            cout << filler << backward(image_number) << endl;
+            cout << Filler << backward(image_number) << endl;
             break;
         case 4: 
             cout << newFileFiller << createFileName(image_number) << endl;
