@@ -15,8 +15,6 @@ int  forward ( int current_number ) {
     } else {
         return MIN_NUMBER;
     }
-
-   
 }
 
 int  backward ( int current_number ) {
@@ -28,7 +26,6 @@ int  backward ( int current_number ) {
    
 }
 
- // use the constants MIN_NUMBER, MAX_NUMBER, do not use hard coded 1 or 8
 
 
 string  createFileName ( int current_number ) {
@@ -75,7 +72,7 @@ int main () {
 
       switch(command){
         case 1: 
-            showMenu;
+            showMenu();
             break;
         case 2: 
             image_number = forward(image_number);
