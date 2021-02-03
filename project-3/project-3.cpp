@@ -11,12 +11,12 @@ int  forward ( int current_number ) {
     // return the new image number
 
     if (current_number < MAX_NUMBER){
-        image_number = ++current_number;
+        return ++current_number;
     } else {
-        image_number = MIN_NUMBER;
+        return MIN_NUMBER;
     }
 
-    return image_number;
+   
 }
 
 int  backward ( int current_number ) {
@@ -24,8 +24,8 @@ int  backward ( int current_number ) {
     if (current_number == MIN_NUMBER){
         return MIN_NUMBER;
     }
-    image_number = --current_number; 
-    return image_number;
+    return --current_number; 
+   
 }
 
  // use the constants MIN_NUMBER, MAX_NUMBER, do not use hard coded 1 or 8
@@ -78,10 +78,15 @@ int main () {
             showMenu;
             break;
         case 2: 
-            cout << Filler << forward(image_number) << endl;
+            image_number = forward(image_number);
+            cout << Filler << image_number << endl;
             break;
         case 3:
-            cout << Filler << backward(image_number) << endl;
+            image_number = backward(image_number);
+            cout << Filler << image_number << endl;
+            if (image_number == MIN_NUMBER)
+                running = 0;
+                
             break;
         case 4: 
             cout << newFileFiller << createFileName(image_number) << endl;
